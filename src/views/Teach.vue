@@ -99,7 +99,7 @@ const getTeachPie = async ()=>{
     const data = await proxy.$api.getTeachBar()
     // console.log(data);
     barOption.dataset = data
-    console.log(barOption);
+    // console.log(barOption);
     
     const workEchart = echarts.init(proxy.$refs['workEchart'])
     workEchart.setOption(barOption)
@@ -107,6 +107,7 @@ const getTeachPie = async ()=>{
     
      observer.value = new ResizeObserver(()=>{
         echart.resize()
+        workEchart.resize()
     })
 
     if(proxy.$refs['echart']){
